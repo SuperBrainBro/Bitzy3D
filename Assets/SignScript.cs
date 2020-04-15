@@ -4,19 +4,22 @@ using UnityEngine;
 using UnityEngine.UI;
 public class SignScript : MonoBehaviour
 {
+    //Public Variables
     public string signText;
-
     public GameObject textBox;
     public Text textText;
+    //Private Variables
     private bool inRange;
-
     private GameObject player;
     private float playerSpeed;
+    private PlayerController controller;
+    private PlayerScript playerScript;
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-
-        playerSpeed = player.GetComponent<PrototypePlayerScript>().speed;
+        controller = player.GetComponent<PlayerController>();
+        playerSpeed = controller.speed;
+        playerScript = player.GetComponent<PlayerScript>();
     }
     private void Update()
     {
@@ -25,17 +28,15 @@ public class SignScript : MonoBehaviour
             if (textBox.activeInHierarchy)
             {
                 textBox.SetActive(false);
-
-                player.GetComponent<PrototypePlayerScriptJump>().canMove = true;
-                player.GetComponent<PrototypePlayerScript>().speed = playerSpeed;
+                playerScript.canMove = true;
+                controller.speed = playerSpeed;
             } else
             {
                 textText.text = signText;
                 textBox.SetActive(true);
-
-                player.GetComponent<PrototypePlayerScriptJump>().canMove = false;
-                player.GetComponent<PrototypePlayerScript>().speed = 0;
-                player.GetComponent<PrototypePlayerScript>().freezePlayer();
+                playerScript.canMove = false;
+                controller.speed = 0;
+                controller.FreezePlayer();
             }
         }
     }
@@ -43,7 +44,6 @@ public class SignScript : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Player In Range Of Sign");
             inRange = true;
         }
     }
@@ -52,7 +52,6 @@ public class SignScript : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Player Left Range Of Sign");
             inRange = false;
         }
     }

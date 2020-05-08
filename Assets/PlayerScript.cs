@@ -13,6 +13,8 @@ public class PlayerScript : MonoBehaviour
 	public PlayerController controller;
 	public Animator anim;
 	public bool canMove = true;
+    public SpriteRenderer interactionText;
+    
 	private void Start()
 	{
 		rb = GetComponent<Rigidbody>();

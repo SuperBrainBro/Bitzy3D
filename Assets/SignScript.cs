@@ -45,6 +45,7 @@ public class SignScript : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             inRange = true;
+            player.GetComponent<PlayerScript>().interactionText.enabled = true;
         }
     }
 
@@ -53,6 +54,7 @@ public class SignScript : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             inRange = false;
+            player.GetComponent<PlayerScript>().interactionText.enabled = false;
         }
     }
 }

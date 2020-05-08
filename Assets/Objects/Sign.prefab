@@ -18,7 +18,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4889758139515086058
 Transform:
@@ -49,6 +49,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -122,4 +123,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42e935e627a0b6c4bbf63b34a6719b9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  signText: testtest
+  signText: Dialogue
+  textBox: {fileID: 0}
+  textText: {fileID: 0}
